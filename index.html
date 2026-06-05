@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="WITHX Innovations engineering solutions, services, projects, products and contact information.">
 <title>WITHX Innovations | Industrial Engineering Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -670,7 +671,7 @@ padding:20px;
 height:180px;
 }
 
-}
+
 
 /* Extra small phones */
 @media (max-width:480px){
@@ -696,6 +697,469 @@ border-radius:18px;
 }
 
 }
+
+
+/* ================= WITHX UI/UX POLISH PATCH ================= */
+:root{
+  --radius-lg:28px;
+  --radius-md:18px;
+  --shadow-soft:0 18px 50px rgba(10,31,68,.10);
+  --shadow-hover:0 28px 75px rgba(10,31,68,.16);
+  --gradient-accent:linear-gradient(135deg,#38bdf8,#2563eb);
+}
+
+html{scroll-padding-top:96px;}
+body{min-height:100vh;}
+::selection{background:rgba(56,189,248,.25);color:#0a1f44;}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:auto 0 0 0;
+  height:160px;
+  background:linear-gradient(0deg,rgba(248,251,255,.92),rgba(248,251,255,0));
+  pointer-events:none;
+  z-index:1;
+}
+
+nav{
+  width:min(1180px,calc(100% - 28px)) !important;
+  left:50%;
+  top:14px !important;
+  transform:translateX(-50%);
+  border:1px solid rgba(10,31,68,.08) !important;
+  border-radius:999px;
+  box-shadow:0 12px 35px rgba(10,31,68,.08);
+  padding:12px 18px !important;
+}
+nav .logo img,.logo img{height:42px !important;width:auto;display:block;}
+nav > div:last-child,.nav-links{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+nav a{
+  margin-left:0 !important;
+  padding:9px 12px;
+  border-radius:999px;
+  font-weight:600;
+  line-height:1;
+}
+nav a:hover,nav a.active{
+  color:#0369a1 !important;
+  background:rgba(56,189,248,.12);
+  opacity:1 !important;
+}
+
+.hero{padding-top:132px !important;}
+.hero h1,.title{letter-spacing:-.045em;}
+.hero p,.lead,section p{font-size:clamp(.98rem,1.5vw,1.08rem);}
+
+button,.btn,.call-btn,.whatsapp-btn,.cta,a.btn{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease !important;
+}
+button:hover,.btn:hover,.call-btn:hover,.whatsapp-btn:hover,.cta:hover,a.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 34px rgba(14,165,233,.20);
+}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:3px solid rgba(56,189,248,.35);
+  outline-offset:3px;
+}
+
+.card,.glass,.hero-copy,.hero-frame,.visual-frame,.service-card,.project-card,.product-card,.research-card,.float-card{
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease,background .35s ease !important;
+}
+.card:hover,.glass:hover,.service-card:hover,.project-card:hover,.product-card:hover,.research-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-hover) !important;
+  border-color:rgba(56,189,248,.25) !important;
+}
+img{max-width:100%;}
+.card img,.service-card img,.project-card img,.product-card img,.research-card img,.card-image{
+  transition:transform .45s ease,filter .45s ease;
+}
+.card:hover img,.service-card:hover img,.project-card:hover img,.product-card:hover img,.research-card:hover img{
+  transform:scale(1.035);
+  filter:saturate(1.05) contrast(1.03);
+}
+
+input,textarea{
+  background:rgba(255,255,255,.86) !important;
+  border:1px solid rgba(10,31,68,.12) !important;
+  font:inherit;
+  transition:border-color .25s ease,box-shadow .25s ease,background .25s ease;
+}
+input:focus,textarea:focus{
+  border-color:#38bdf8 !important;
+  box-shadow:0 0 0 4px rgba(56,189,248,.12);
+  background:#fff !important;
+}
+.map iframe{display:block;width:100%;border-radius:20px;}
+
+.back-to-top{
+  position:fixed;
+  right:22px;
+  bottom:88px;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border:1px solid rgba(10,31,68,.10);
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(12px);
+  color:#0a1f44;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  box-shadow:0 12px 30px rgba(10,31,68,.12);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(8px);
+  transition:.25s ease;
+  z-index:1200;
+}
+.back-to-top.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important;transition-duration:.001ms !important;}
+}
+
+@media(max-width:980px){
+  nav{
+    border-radius:24px;
+    align-items:flex-start !important;
+    gap:10px;
+  }
+  nav > div:last-child,.nav-links{
+    width:100%;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    padding-bottom:3px;
+    scrollbar-width:none;
+  }
+  nav > div:last-child::-webkit-scrollbar,.nav-links::-webkit-scrollbar{display:none;}
+  .hero-grid,.grid{grid-template-columns:1fr !important;}
+  .hero-visual{min-height:420px !important;}
+  .hero h1{max-width:100% !important;}
+}
+
+@media(max-width:640px){
+  nav{width:calc(100% - 18px) !important;top:9px !important;padding:10px 12px !important;}
+  nav .logo img,.logo img{height:36px !important;}
+  nav a{font-size:.86rem;padding:8px 10px;white-space:nowrap;}
+  .hero{padding:122px 14px 44px !important;min-height:auto !important;}
+  .hero-copy,.card,.glass{border-radius:22px !important;padding:22px !important;}
+  .hero-metrics,.hero-stat-row,.hero-stats{grid-template-columns:1fr !important;}
+  section{width:min(100% - 28px,var(--max,1200px)) !important;padding:64px 0 !important;}
+  .float{right:14px !important;bottom:14px !important;}
+  .back-to-top{right:14px;bottom:82px;}
+}
+/* ================= END WITHX UI/UX POLISH PATCH ================= */
+
+/* ===== PREMIUM FOOTER FIX ===== */
+.footer{
+  background:#0f172a;
+  color:#fff;
+  padding:70px 8% 25px;
+  margin-top:80px;
+  text-align:left;
+  border-top:1px solid rgba(255,255,255,.08);
+  position:relative;
+  z-index:2;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1.4fr;
+  gap:50px;
+}
+
+.footer-box h3{
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:15px;
+  color:#fff;
+  letter-spacing:.3px;
+}
+
+.footer-box h4{
+  font-size:18px;
+  margin-bottom:20px;
+  color:#fff;
+}
+
+.footer-box p{
+  color:#cbd5e1;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.footer-links,
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.footer-links a,
+.footer-contact a{
+  color:#cbd5e1;
+  text-decoration:none;
+  transition:.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#38bdf8;
+  transform:translateX(4px);
+}
+
+.footer-contact span{
+  color:#cbd5e1;
+  line-height:1.6;
+}
+
+.social-links{
+  display:flex;
+  gap:12px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.social-links a{
+  padding:10px 16px;
+  border-radius:999px;
+  background:#1e293b;
+  font-weight:600;
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+
+.social-links a:hover{
+  transform:translateY(-3px);
+}
+
+.linkedin{color:#60a5fa !important;}
+.instagram{color:#fb7185 !important;}
+.youtube{color:#f87171 !important;}
+
+.footer-bottom{
+  max-width:1200px;
+  margin:40px auto 0;
+  padding-top:20px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:#94a3b8;
+  font-size:14px;
+}
+
+@media(max-width:900px){
+  .footer{
+    padding:50px 6% 22px;
+    margin-top:60px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+}
+/* ===== END PREMIUM FOOTER FIX ===== */
+
+
+/* ===== FINAL HOSTINGER-STYLE NAVBAR (APPLIED TO ALL PAGES) ===== */
+.top-navbar{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  width:100% !important;
+  height:88px !important;
+  transform:none !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  padding:0 48px !important;
+  background:#0b0d10 !important;
+  color:#ffffff !important;
+  border-radius:0 !important;
+  border:none !important;
+  box-shadow:none !important;
+  z-index:3000 !important;
+}
+
+.nav-left,
+.nav-right{
+  display:flex !important;
+  align-items:center !important;
+  gap:34px !important;
+}
+
+.brand{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  color:#ffffff !important;
+  text-decoration:none !important;
+  font-size:24px !important;
+  font-weight:800 !important;
+  letter-spacing:3px !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border-radius:0 !important;
+}
+
+.brand-logo-box{
+  height:54px !important;
+  min-width:76px !important;
+  padding:8px 14px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#ffffff !important;
+  border-radius:14px !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.22) !important;
+}
+
+.brand-logo-box img,
+.top-navbar .brand img,
+nav.top-navbar .brand img{
+  height:38px !important;
+  width:auto !important;
+  display:block !important;
+  object-fit:contain !important;
+  background:transparent !important;
+  padding:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  filter:none !important;
+  animation:none !important;
+  transform:none !important;
+}
+
+.brand-text{
+  color:#ffffff !important;
+}
+
+.nav-links{
+  display:flex !important;
+  align-items:center !important;
+  gap:30px !important;
+  flex-wrap:nowrap !important;
+}
+
+.top-navbar a{
+  color:#ffffff !important;
+  text-decoration:none !important;
+  font-size:16px !important;
+  font-weight:600 !important;
+  opacity:1 !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border-radius:0 !important;
+  line-height:1 !important;
+  transition:color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease !important;
+}
+
+.top-navbar a:hover,
+.top-navbar a.active{
+  color:#38bdf8 !important;
+}
+
+.ask-btn{
+  padding:14px 26px !important;
+  border:1px solid #8b5cf6 !important;
+  border-radius:999px !important;
+  background:#111827 !important;
+  color:#ffffff !important;
+}
+
+.ask-btn:hover{
+  border-color:#38bdf8 !important;
+  color:#ffffff !important;
+  box-shadow:0 0 24px rgba(56,189,248,.24) !important;
+  transform:translateY(-1px) !important;
+}
+
+.hero,
+.page-hero,
+.services-hero,
+.products-hero,
+.projects-hero,
+.research-hero,
+.contact-hero,
+.about-hero{
+  padding-top:160px !important;
+}
+
+main,
+.page-wrap{
+  padding-top:88px;
+}
+
+@media(max-width:900px){
+  .top-navbar{
+    height:auto !important;
+    padding:18px 22px !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:18px !important;
+  }
+
+  .nav-left,
+  .nav-right{
+    width:100% !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:16px !important;
+  }
+
+  .brand{
+    font-size:22px !important;
+  }
+
+  .brand-logo-box{
+    height:50px !important;
+    min-width:70px !important;
+  }
+
+  .nav-links{
+    width:100% !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:16px 22px !important;
+  }
+
+  .top-navbar a{
+    font-size:15px !important;
+  }
+
+  .ask-btn{
+    padding:12px 22px !important;
+  }
+
+  .hero,
+  .page-hero,
+  .services-hero,
+  .products-hero,
+  .projects-hero,
+  .research-hero,
+  .contact-hero,
+  .about-hero{
+    padding-top:210px !important;
+  }
+}
+/* ===== END FINAL HOSTINGER-STYLE NAVBAR ===== */
+
 </style>
 </head>
 <body>
@@ -703,18 +1167,26 @@ border-radius:18px;
 <div class="orb orb2"></div>
 <div class="orb orb3"></div>
 
-<nav>
-  <div class="logo">
-    <img src="https://i.ibb.co/BVTS9KXY/image-removebg-preview-4.png" alt="WITHX Logo">
+<nav class="top-navbar">
+  <div class="nav-left">
+    <a class="brand" href="index.html" aria-label="WITHX Home">
+      <span class="brand-logo-box"><img src="https://i.ibb.co/BVTS9KXY/image-removebg-preview-4.png" alt="WITHX Logo"></span>
+      <span class="brand-text">WITHX</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
-  <div>
-    <a href="index.html">Home</a>
+
+  <div class="nav-right">
+    <a class="ask-btn" href="contact.html">Ask WITHX</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="products.html">Products</a>
-    <a href="projects.html">Projects</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html">Contact</a>
   </div>
 </nav>
 
@@ -951,111 +1423,59 @@ View Product
     </div>
   </div>
 </section>
-<footer style="background:#f8fafc;padding:60px 0 25px;border-top:1px solid #e5e7eb;">
+<footer class="footer">
 
-  <div style="
-    width:min(1200px, calc(100% - 40px));
-    margin:auto;
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:50px;
-  ">
+  <div class="footer-container">
 
-    <!-- Company Info -->
-    <div>
-      <h3 style="margin-bottom:15px;font-size:24px;font-weight:800;color:#0f172a;">
-        WITHX INNOVATIONS
-      </h3>
-
-      <p style="
-        color:#64748b;
-        line-height:1.8;
-        font-size:15px;
-      ">
-        WITHX Innovations Private Limited is an engineering-driven company focused on
-        research & development, manufacturing solutions, industrial design,
-        product innovation, and advanced technology development.
+    <div class="footer-box">
+      <h3>WITHX INNOVATIONS</h3>
+      <p>
+        WITHX Innovations Private Limited is an engineering-driven company
+        focused on research &amp; development, manufacturing solutions,
+        industrial design, product innovation and advanced technology development.
       </p>
     </div>
 
-    <!-- Quick Links -->
-    <div>
-      <h4 style="margin-bottom:20px;font-size:18px;font-weight:700;color:#0f172a;">
-        Quick Links
-      </h4>
-
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="index.html" style="text-decoration:none;color:#475569;">Home</a>
-        <a href="about.html" style="text-decoration:none;color:#475569;">About Us</a>
-        <a href="services.html" style="text-decoration:none;color:#475569;">Services</a>
-        <a href="products.html" style="text-decoration:none;color:#475569;">Products</a>
-        <a href="contact.html" style="text-decoration:none;color:#475569;">Contact</a>
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="research.html">Research</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
 
-    <!-- Contact -->
-    <div>
-      <h4 style="margin-bottom:20px;font-size:18px;font-weight:700;color:#0f172a;">
-        Contact
-      </h4>
+    <div class="footer-box">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <span>📍 EDF MITAoE, Dehu Phata, Alandi (D), Pune, Maharashtra</span>
+        <span>🏢 WITHX Innovations Pvt. Ltd.</span>
 
-      <div style="
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-        color:#64748b;
-      ">
-        <span>📍 Pune, Maharashtra, India</span>
-        <span>WITHX Innovations Pvt. Ltd.</span>
-
-        <a href="mailto:info@withx.in"
-           style="text-decoration:none;color:#475569;">
-          ✉ info@withx.in
+        <a href="mailto:withx.innovations@gmail.com">
+          ✉ withx.innovations@gmail.com
         </a>
 
-        <div style="
-          display:flex;
-          gap:15px;
-          margin-top:10px;
-          flex-wrap:wrap;
-        ">
-          <a href="https://www.linkedin.com/company/withx-innovations/"
-             target="_blank"
-             style="text-decoration:none;color:#0A66C2;font-weight:600;">
-            LinkedIn
-          </a>
-
-          <a href="https://www.instagram.com/withx.in?igsh=MWJuNDR4dmxiZDJh"
-             target="_blank"
-             style="text-decoration:none;color:#E1306C;font-weight:600;">
-            Instagram
-          </a>
-
-          <a href="https://youtube.com/@withxinnovation?si=sRdB0OaLzHoDtcV5"
-             target="_blank"
-             style="text-decoration:none;color:#FF0000;font-weight:600;">
-            YouTube
-          </a>
+        <div class="social-links">
+          <a class="linkedin" href="https://www.linkedin.com/company/withx-innovations/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="instagram" href="https://www.instagram.com/withx.in" target="_blank" rel="noopener">Instagram</a>
+          <a class="youtube" href="https://youtube.com/@withxinnovation" target="_blank" rel="noopener">YouTube</a>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- Bottom -->
-  <div style="
-    width:min(1200px, calc(100% - 40px));
-    margin:40px auto 0;
-    padding-top:20px;
-    border-top:1px solid #e5e7eb;
-    text-align:center;
-    color:#64748b;
-    font-size:14px;
-  ">
-    © 2026 WITHX Innovations Private Limited. All Rights Reserved.
+  <div class="footer-bottom">
+    ©️ 2026 WITHX Innovations Private Limited. All Rights Reserved.
   </div>
 
 </footer>
+
+
 
 <script>
 const sections = document.querySelectorAll('section');
@@ -1135,5 +1555,29 @@ console.assert(document.querySelector('.hero-copy'), 'Hero content should exist'
 console.assert(document.querySelectorAll('.hero-bg-slide').length > 0, 'Hero background slides should exist');
 
 </script>
+
+<script>
+(function(){
+  const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  document.querySelectorAll('nav a').forEach(link => {
+    const href = (link.getAttribute('href') || '').toLowerCase();
+    if (href === current) {
+      link.classList.add('active');
+      link.setAttribute('aria-current','page');
+    }
+  });
+
+  const topBtn = document.createElement('a');
+  topBtn.href = '#';
+  topBtn.className = 'back-to-top';
+  topBtn.setAttribute('aria-label','Back to top');
+  topBtn.textContent = '↑';
+  document.body.appendChild(topBtn);
+  window.addEventListener('scroll', () => {
+    topBtn.classList.toggle('show', window.scrollY > 520);
+  }, {passive:true});
+})();
+</script>
+
 </body>
 </html>
