@@ -10,6 +10,7 @@
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
+
 body{
   background:
   radial-gradient(circle at top left,#dbeafe,transparent 35%),
@@ -18,6 +19,188 @@ body{
 }
 
 /* NAV premium */
+.top-navbar{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  width:100% !important;
+  height:88px !important;
+  transform:none !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  padding:0 48px !important;
+  background:#0b0d10 !important;
+  color:#ffffff !important;
+  border-radius:0 !important;
+  border:none !important;
+  box-shadow:none !important;
+  z-index:3000 !important;
+}
+
+.nav-left,
+.nav-right{
+  display:flex !important;
+  align-items:center !important;
+  gap:34px !important;
+}
+
+.brand{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  color:#ffffff !important;
+  text-decoration:none !important;
+  font-size:24px !important;
+  font-weight:800 !important;
+  letter-spacing:3px !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border-radius:0 !important;
+}
+
+.brand-logo-box{
+  height:54px !important;
+  min-width:76px !important;
+  padding:8px 14px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#ffffff !important;
+  border-radius:14px !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.22) !important;
+}
+
+.brand-logo-box img,
+.top-navbar .brand img,
+nav.top-navbar .brand img{
+  height:38px !important;
+  width:auto !important;
+  display:block !important;
+  object-fit:contain !important;
+  background:transparent !important;
+  padding:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  filter:none !important;
+  animation:none !important;
+  transform:none !important;
+}
+
+.brand-text{
+  color:#ffffff !important;
+}
+
+.nav-links{
+  display:flex !important;
+  align-items:center !important;
+  gap:30px !important;
+  flex-wrap:nowrap !important;
+}
+
+.top-navbar a{
+  color:#ffffff !important;
+  text-decoration:none !important;
+  font-size:16px !important;
+  font-weight:600 !important;
+  opacity:1 !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border-radius:0 !important;
+  line-height:1 !important;
+  transition:color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease !important;
+}
+
+.top-navbar a:hover,
+.top-navbar a.active{
+  color:#38bdf8 !important;
+}
+
+.ask-btn{
+  padding:14px 26px !important;
+  border:1px solid #8b5cf6 !important;
+  border-radius:999px !important;
+  background:#111827 !important;
+  color:#ffffff !important;
+}
+
+.ask-btn:hover{
+  border-color:#38bdf8 !important;
+  color:#ffffff !important;
+  box-shadow:0 0 24px rgba(56,189,248,.24) !important;
+  transform:translateY(-1px) !important;
+}
+
+.hero,
+.page-hero,
+.services-hero,
+.products-hero,
+.projects-hero,
+.research-hero,
+.contact-hero,
+.about-hero{
+  padding-top:160px !important;
+}
+
+main,
+.page-wrap{
+  padding-top:88px;
+}
+
+@media(max-width:900px){
+  .top-navbar{
+    height:auto !important;
+    padding:18px 22px !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:18px !important;
+  }
+
+  .nav-left,
+  .nav-right{
+    width:100% !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:16px !important;
+  }
+
+  .brand{
+    font-size:22px !important;
+  }
+
+  .brand-logo-box{
+    height:50px !important;
+    min-width:70px !important;
+  }
+
+  .nav-links{
+    width:100% !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:16px 22px !important;
+  }
+
+  .top-navbar a{
+    font-size:15px !important;
+  }
+
+  .ask-btn{
+    padding:12px 22px !important;
+  }
+
+  .hero,
+  .page-hero,
+  .services-hero,
+  .products-hero,
+  .projects-hero,
+  .research-hero,
+  .contact-hero,
+  .about-hero{
+    padding-top:210px !important;
+  }
+}
 nav{
   position:fixed;
   top:18px;
@@ -57,6 +240,7 @@ nav a{
 }
 nav a:hover{color:var(--accent);opacity:1;}
 nav a:hover{color:var(--accent);opacity:1;}
+
 /* HERO premium */
 .hero{
   padding-top:130px;
@@ -343,26 +527,123 @@ button:hover{background:#0284c7}
   margin-top:15px;
   color:#64748b;
 }
+.footer{
+  background:#0f172a;
+  color:#fff;
+  padding:70px 8% 25px;
+  margin-top:80px;
+  text-align:left;
+  border-top:1px solid rgba(255,255,255,.08);
+  z-index:2;
+}
+
+
+
+.footer-box h3{
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:15px;
+  color:#fff;
+  letter-spacing:.3px;
+}
+
+.footer-box h4{
+  font-size:18px;
+  margin-bottom:20px;
+  color:#fff;
+}
+
+.footer-box p{
+  color:#cbd5e1;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.footer-links,
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.footer-links a,
+.footer-contact a{
+  color:#cbd5e1;
+  text-decoration:none;
+  transition:.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#38bdf8;
+  transform:translateX(4px);
+}
+
+.footer-contact span{
+  color:#cbd5e1;
+  line-height:1.6;
+}
+
+.social-links{
+  display:flex;
+  gap:12px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.social-links a{
+  padding:10px 16px;
+  border-radius:999px;
+  background:#1e293b;
+  font-weight:600;
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+
+.social-links a:hover{
+  transform:translateY(-3px);
+}
+
+.linkedin{color:#60a5fa !important;}
+.instagram{color:#fb7185 !important;}
+.youtube{color:#f87171 !important;}
+
+.footer-bottom{ 
+ 
+  max-width:1200px;
+  margin:40px auto 0;
+  padding-top:20px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:#94a3b8;
+  font-size:14px;
+}
 </style>
 </head>
 
 <body>
+<nav class="top-navbar">
+  <div class="nav-left">
+    <a class="brand" href="index.html" aria-label="WITHX Home">
+      <span class="brand-logo-box"><img src="https://i.ibb.co/BVTS9KXY/image-removebg-preview-4.png" alt="WITHX Logo"></span>
+      <span class="brand-text">WITHX</span>
+    </a>
 
-<nav>
-  <div class="logo">
-    <img src="https://i.ibb.co/BVTS9KXY/image-removebg-preview-4.png" alt="WITHX Logo">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 
-  <div class="nav-links">
-    <a href="index.html">Home</a>
+  <div class="nav-right">
+    <a class="ask-btn" href="contact.html">Ask WITHX</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="products.html">Products</a>
-    <a href="projects.html">Projects</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html">Contact</a>
   </div>
 </nav>
+
 <!-- HERO premium -->
 <div class="hero">
     <h1>Contact Us</h1>
@@ -500,5 +781,57 @@ button:hover{background:#0284c7}
   <a href="https://wa.me/919067936323" class="whatsapp" target="_blank">💬</a>
 </div>
 
+
+<footer class="footer">
+
+ 
+
+    <div class="footer-box">
+      <h3>WITHX INNOVATIONS</h3>
+      <p>
+        WITHX Innovations Private Limited is an engineering-driven company
+        focused on research &amp; development, manufacturing solutions,
+        industrial design, product innovation and advanced technology development.
+      </p>
+    </div>
+
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="research.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-box">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <span>📍 EDF MITAoE, Dehu Phata, Alandi (D), Pune, Maharashtra</span>
+        <span>🏢 WITHX Innovations Pvt. Ltd.</span>
+
+        <a href="mailto:withx.innovations@gmail.com">
+          ✉ withx.innovations@gmail.com
+        </a>
+
+        <div class="social-links">
+          <a class="linkedin" href="https://www.linkedin.com/company/withx-innovations/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="instagram" href="https://www.instagram.com/withx.in" target="_blank" rel="noopener">Instagram</a>
+          <a class="youtube" href="https://youtube.com/@withxinnovation" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    ©️ 2026 WITHX Innovations Private Limited. All Rights Reserved.
+  </div>
+
+</footer>
 </body>
 </html>
