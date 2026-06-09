@@ -21,7 +21,8 @@
 
 html{scroll-behavior:smooth}
 body{
-  background:linear-gradient(180deg,#f8fbff 0%,#e8f0f8 100%);
+  background:radial-gradient(circle at top left, rgba(56,189,248,.14), transparent 18%),
+              linear-gradient(180deg,#f8fbff 0%,#e8f0f8 100%);
   color:var(--text);
   overflow-x:hidden;
 }
@@ -48,26 +49,106 @@ body::before{
 .orb2{width:260px;height:260px;background:#7dd3fc;top:36%;right:2%;animation-delay:2s;}
 .orb3{width:220px;height:220px;background:#bfdbfe;bottom:8%;left:38%;animation-delay:4s;}
 @keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-24px) translateX(16px)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 34px;
-  background:rgba(255,255,255,.84);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(0,0,0,.05);
-  z-index:1000;
+.top-navbar{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  width:100% !important;
+  height:88px !important;
+  transform:none !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  padding:0 48px !important;
+  background:rgba(11,13,16,.94) !important;
+  color:#ffffff !important;
+  border-radius:0 !important;
+  border-bottom:1px solid rgba(255,255,255,.08) !important;
+  box-shadow:0 18px 45px rgba(0,0,0,.16) !important;
+  z-index:3000 !important;
 }
-nav .logo{display:flex;align-items:center;gap:10px}
-nav .logo img{height:38px}
-nav b{letter-spacing:.08em;font-size:.95rem;color:var(--primary)}
-nav a{text-decoration:none;margin-left:16px;color:var(--text);opacity:.76;transition:.3s;font-size:.95rem}
-nav a:hover{color:var(--accent);opacity:1}
 
+.nav-left,
+.nav-right{
+  display:flex !important;
+  align-items:center !important;
+  gap:34px !important;
+}
+
+.brand{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  color:#ffffff !important;
+  text-decoration:none !important;
+  font-size:24px !important;
+  font-weight:800 !important;
+  letter-spacing:3px !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border-radius:0 !important;
+}
+
+.brand-logo-box{
+  height:54px !important;
+  min-width:76px !important;
+  padding:8px 14px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#ffffff !important;
+  border-radius:14px !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.22) !important;
+}
+
+.brand-logo-box img,
+.top-navbar .brand img,
+nav.top-navbar .brand img{
+  height:38px !important;
+  width:auto !important;
+  display:block !important;
+  object-fit:contain !important;
+  background:transparent !important;
+  padding:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  filter:none !important;
+  animation:none !important;
+  transform:none !important;
+}
+
+.brand-text{
+  color:#ffffff !important;
+}
+
+.nav-links{
+  display:flex !important;
+  align-items:center !important;
+  gap:30px !important;
+  flex-wrap:nowrap !important;
+}
+
+.top-navbar a{
+  color:#ffffff !important;
+  text-decoration:none !important;
+  font-size:16px !important;
+  font-weight:600 !important;
+  opacity:1 !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border-radius:0 !important;
+  line-height:1 !important;
+  transition:color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease !important;
+}
+
+.top-navbar a:hover,
+.top-navbar a.active{
+  color:#38bdf8 !important;
+}
 .hero{
   min-height:92vh;
   display:grid;
@@ -96,13 +177,25 @@ nav a:hover{color:var(--accent);opacity:1}
   z-index:2;
 }
 .hero-copy{
-  background:rgba(255,255,255,.76);
-  border:1px solid var(--panel-border);
+  position:relative;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.65);
   border-radius:30px;
-  padding:34px;
-  backdrop-filter:blur(16px);
-  box-shadow:0 24px 60px rgba(10,31,68,.08);
+  padding:38px;
+  backdrop-filter:blur(20px);
+  animation:fadeInUp .9s ease forwards;
 }
+.hero-copy::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:6px;
+  height:100%;
+  border-radius:0 18px 18px 0;
+  background:linear-gradient(180deg, rgba(56,189,248,.95), rgba(14,165,233,.35));
+}
+.hero-copy>*{position:relative;}
 .hero-kicker{
   display:inline-block;
   padding:10px 16px;
@@ -135,10 +228,19 @@ nav a:hover{color:var(--accent);opacity:1}
   gap:14px;
 }
 .hero-stat{
-  background:rgba(255,255,255,.64);
-  border:1px solid var(--panel-border);
-  border-radius:18px;
-  padding:16px;
+  position:relative;
+  background:rgba(255,255,255,.85);
+  border:1px solid rgba(10,31,68,.08);
+  border-radius:22px;
+  padding:22px;
+  overflow:hidden;
+}
+.hero-stat::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right, rgba(56,189,248,.08), transparent 32%);
+  pointer-events:none;
 }
 .hero-stat b{display:block;color:var(--primary);margin-bottom:6px;font-size:1.08rem}
 .hero-stat span{color:var(--muted);font-size:.92rem;line-height:1.6}
@@ -148,14 +250,14 @@ nav a:hover{color:var(--accent);opacity:1}
   display:flex;
   align-items:center;
   justify-content:center;
+  animation:fadeInUp 1.05s ease .14s forwards;
 }
 .hero-frame{
   width:min(580px,100%);
   aspect-ratio:1/1.06;
   border-radius:34px;
   overflow:hidden;
-  border:1px solid rgba(10,31,68,.08);
-  box-shadow:0 28px 80px rgba(10,31,68,.12);
+  border:1px solid rgba(56,189,248,.16);
   position:relative;
 }
 .hero-frame img{width:100%;height:100%;object-fit:cover}
@@ -165,19 +267,34 @@ nav a:hover{color:var(--accent);opacity:1}
   inset:0;
   background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(10,31,68,.08));
 }
+.hero-frame::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  top:18px;
+  bottom:18px;
+  border-radius:28px;
+  border:1px dashed rgba(255,255,255,.18);
+  pointer-events:none;
+}
 .float-card{
   position:absolute;
-  background:rgba(255,255,255,.9);
-  backdrop-filter:blur(16px);
-  border:1px solid var(--panel-border);
-  box-shadow:0 18px 40px rgba(10,31,68,.10);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(10,31,68,.08);
   border-radius:24px;
-  padding:18px;
+  padding:20px;
+  width:240px;
 }
-.float-card.top{top:10%;right:-2%;width:220px}
-.float-card.bottom{bottom:10%;left:-2%;width:250px}
-.float-card small{color:#0369a1;display:block;margin-bottom:8px}
-.float-card strong{color:var(--primary);line-height:1.45}
+.float-card.top{top:6%;right:-2%;}
+.float-card.bottom{bottom:6%;left:-2%;}
+.float-card small{color:#0369a1;display:block;margin-bottom:8px;font-size:.95rem;letter-spacing:.03em;text-transform:uppercase}
+.float-card strong{color:var(--primary);line-height:1.45;font-size:1rem}
+.float-card{animation:floatCard 4.5s ease-in-out infinite;}
+@keyframes floatCard{0%,100%{transform:translateY(0)}25%{transform:translateY(-8px)}50%{transform:translateY(-16px)}75%{transform:translateY(-8px)}}
+
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
 section{
 width:min(1200px,90%);
@@ -187,23 +304,178 @@ width:min(1200px,90%);
   z-index:2;
   opacity:0;
   transform:translateY(55px);
-  transition:all .9s ease;
+  transition:opacity .9s ease, transform .9s ease;
+}
+section .title,
+section .lead,
+section .summary-card,
+section .service-feature,
+section .service-card,
+section .process-card,
+section .process-step,
+section .highlight-card,
+section .cta-panel{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .7s ease, transform .7s ease;
 }
 section.show{opacity:1;transform:translateY(0)}
-.title{
-  font-size:clamp(2rem,4vw,3.2rem);
-  font-weight:800;
-  color:var(--primary);
-  margin-bottom:14px;
-  letter-spacing:-.03em;
-}
+section.show .title{opacity:1;transform:translateY(0);transition-delay:.16s;}
+section.show .lead{opacity:1;transform:translateY(0);transition-delay:.26s;}
+section.show .summary-card{opacity:1;transform:translateY(0);transition-delay:.22s;}
+section.show .service-feature{opacity:1;transform:translateY(0);transition-delay:.20s;}
+section.show .service-card{opacity:1;transform:translateY(0);transition-delay:.24s;}
+section.show .process-card{opacity:1;transform:translateY(0);transition-delay:.28s;}
+section.show .process-step{opacity:1;transform:translateY(0);transition-delay:.32s;}
+section.show .highlight-card{opacity:1;transform:translateY(0);transition-delay:.30s;}
+section.show .cta-panel{opacity:1;transform:translateY(0);transition-delay:.22s;}
 .lead{color:var(--muted);line-height:1.9;max-width:760px}
 .glass{
   background:var(--panel);
   border:1px solid var(--panel-border);
   border-radius:28px;
   backdrop-filter:blur(16px);
-  box-shadow:0 24px 60px rgba(10,31,68,.08);
+}
+
+.section-heading-panel{
+  padding:34px 32px;
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:30px;
+  margin-bottom:36px;
+}
+
+.summary-section .section-heading-panel{
+  background:rgba(9,20,42,.92);
+  border-color:rgba(56,189,248,.18);
+}
+
+.summary-section .section-heading-panel .title,
+.summary-section .section-heading-panel .lead{
+  color:#f8fafc;
+}
+
+.service-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  margin-top:40px;
+}
+
+.summary-card{
+  padding:28px;
+  background:rgba(8,18,42,.96);
+  border:1px solid rgba(56,189,248,.28);
+  border-radius:28px;
+  transition:transform .3s ease,border-color .3s ease;
+  animation:cardFloat 18s ease-in-out infinite;
+  color:#f8fafc;
+}
+
+.summary-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(56,189,248,.42);
+}
+
+.summary-card h4{
+  font-size:1.2rem;
+  margin-bottom:12px;
+  color:#f8fafc;
+  text-shadow:none;
+}
+
+.summary-card p{
+  color:hsla(210,90%,93%,.92);
+  line-height:1.8;
+}
+
+.summary-card-icon{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:rgba(56,189,248,.22);
+  color:#ffffff;
+  font-size:1.6rem;
+  margin-bottom:18px;
+}
+
+.service-area-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:28px;
+  margin-top:38px;
+}
+
+.service-card.premium{
+  padding:28px;
+  background:linear-gradient(180deg,rgba(56,189,248,.08),rgba(255,255,255,.95));
+  border:1px solid rgba(56,189,248,.22);
+  box-shadow:none;
+  animation:cardFloat 16s ease-in-out infinite;
+}
+
+.service-card.premium:hover{
+  transform:translateY(-8px);
+  border-color:rgba(56,189,248,.32);
+}
+
+.service-area-grid .service-card img{
+  height:240px;
+}
+
+.process-cards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  margin-top:30px;
+}
+
+.process-card{
+  padding:28px;
+  position:relative;
+  background:linear-gradient(180deg,rgba(56,189,248,.08),rgba(255,255,255,.92));
+  border:1px solid rgba(56,189,248,.18);
+  border-radius:28px;
+  box-shadow:none;
+  transition:.3s ease,transform .3s ease,border-color .3s ease;
+  animation:cardFloat 18s ease-in-out infinite;
+}
+
+.process-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(56,189,248,.26);
+}
+
+.process-badge{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(56,189,248,.95),rgba(14,165,233,.45));
+  color:#fff;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.process-card h3{
+  margin-bottom:10px;
+  color:var(--primary);
+}
+
+.process-card p{
+  color:var(--muted);
+  line-height:1.75;
+}
+
+@media(max-width:980px){
+  .service-summary-grid,
+  .service-area-grid,
+  .process-cards{
+    grid-template-columns:1fr;
+  }
 }
 
 .service-feature{
@@ -229,8 +501,12 @@ section.show{opacity:1;transform:translateY(0)}
   gap:24px;
 }
 .service-card{
-  padding:22px;
-  transition:.35s ease;
+  padding:26px;
+  transition:.35s ease, transform .35s ease, box-shadow .35s ease;
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(10,31,68,.1);
+  border-radius:26px;
+  position:relative;
 }
 .service-card:hover,
 .service-feature:hover{
@@ -274,6 +550,17 @@ justify-self:center;
 }
 .process-panel{
   padding:34px;
+  position:relative;
+}
+.process-panel::before{
+  content:"";
+  position:absolute;
+  top:-12px;
+  right:-12px;
+  width:68px;
+  height:68px;
+  background:rgba(56,189,248,.12);
+  border-radius:50%;
 }
 .process-steps{
   margin-top:24px;
@@ -281,10 +568,14 @@ justify-self:center;
   gap:18px;
 }
 .process-step{
-  padding:18px 20px;
+  padding:22px 24px;
   border-radius:18px;
-  background:rgba(255,255,255,.54);
+  background:rgba(255,255,255,.88);
   border:1px solid rgba(10,31,68,.08);
+  transition:.3s ease, transform .3s ease;
+}
+.process-step:hover{
+  transform:translateX(4px);
 }
 .process-step b{display:block;color:var(--primary);margin-bottom:6px}
 .process-step span{color:var(--muted);line-height:1.7}
@@ -294,32 +585,45 @@ justify-self:center;
   gap:22px;
 }
 .highlight-card{
-  padding:26px;
-  transition:.35s ease;
+  padding:28px;
+  transition:.35s ease, transform .35s ease, border-color .35s ease;
+  background:linear-gradient(180deg,rgba(56,189,248,.1),rgba(255,255,255,.92));
+  border:1px solid rgba(56,189,248,.18);
+  border-radius:28px;
+  box-shadow:none;
+  animation:cardFloat 20s ease-in-out infinite;
 }
-.highlight-card:hover{transform:translateY(-8px)}
-.highlight-card .icon{font-size:2rem;margin-bottom:12px}
+.highlight-card:hover{transform:translateY(-8px);border-color:rgba(56,189,248,.32);}
+.highlight-card .icon{font-size:2.1rem;margin-bottom:12px}
 .highlight-card h4{color:var(--primary);margin-bottom:10px;font-size:1.1rem}
 .highlight-card p{color:var(--muted);line-height:1.75}
 
 .cta-panel{
-  padding:36px;
+  padding:42px;
   text-align:center;
+  position:relative;
+}
+.cta-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right, rgba(56,189,248,.12), transparent 32%);
+  pointer-events:none;
 }
 .cta-panel p{color:var(--muted);line-height:1.85;max-width:700px;margin:0 auto 22px}
 .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .btn{
-  padding:14px 24px;
+  padding:16px 28px;
   border:none;
-  border-radius:16px;
+  border-radius:18px;
   background:linear-gradient(180deg,var(--accent),#0284c7);
   color:#fff;
   font-weight:700;
   cursor:pointer;
-  transition:.3s;
-  box-shadow:0 8px 20px rgba(56,189,248,.25);
+  transition:.3s ease, transform .3s ease, box-shadow .3s ease;
+  box-shadow:0 18px 30px rgba(56,189,248,.25);
 }
-.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 24px 45px rgba(56,189,248,.28);}
 .btn.secondary{
   background:rgba(255,255,255,.8);
   color:var(--primary);
@@ -327,15 +631,113 @@ justify-self:center;
   box-shadow:none;
 }
 
-footer{
-  margin-top:10px;
-  padding:40px 20px 60px;
-  border-top:1px solid rgba(10,31,68,.08);
-  background:rgba(255,255,255,.7);
-  text-align:center;
-  color:var(--muted);
+.footer{
+  background:#0f172a;
+  color:#fff;
+  padding:70px 8% 25px;
+  margin-top:80px;
+  text-align:left;
+  border-top:1px solid rgba(255,255,255,.08);
   position:relative;
   z-index:2;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1.4fr;
+  gap:50px;
+}
+
+.footer-box h3{
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:15px;
+  color:#fff;
+  letter-spacing:.3px;
+}
+
+.footer-box h4{
+  font-size:18px;
+  margin-bottom:20px;
+  color:#fff;
+}
+
+.footer-box p{
+  color:#cbd5e1;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.footer-links,
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.footer-links a,
+.footer-contact a{
+  color:#cbd5e1;
+  text-decoration:none;
+  transition:.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#38bdf8;
+  transform:translateX(4px);
+}
+
+.footer-contact span{
+  color:#cbd5e1;
+  line-height:1.6;
+}
+
+.social-links{
+  display:flex;
+  gap:12px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.social-links a{
+  padding:10px 16px;
+  border-radius:999px;
+  background:#1e293b;
+  font-weight:600;
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+
+.social-links a:hover{
+  transform:translateY(-3px);
+}
+
+.linkedin{color:#60a5fa !important;}
+.instagram{color:#fb7185 !important;}
+.youtube{color:#ff0000 !important;}
+
+.footer-bottom{
+  max-width:1200px;
+  margin:40px auto 0;
+  padding-top:20px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:#94a3b8;
+  font-size:14px;
+}
+
+@media(max-width:900px){
+  .footer{
+    padding:50px 6% 22px;
+    margin-top:60px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
 }
 
 @media(max-width:980px){
@@ -381,21 +783,29 @@ justify-self:center;
 <div class="orb orb2"></div>
 <div class="orb orb3"></div>
 
-<nav>
-  <div class="logo">
-    <img src="https://i.ibb.co/BVTS9KXY/image-removebg-preview-4.png" alt="WITHX Logo">
+<nav class="top-navbar">
+  <div class="nav-left">
+    <a class="brand" href="index.html" aria-label="WITHX Home">
+      <span class="brand-logo-box"><img src="https://i.ibb.co/BVTS9KXY/image-removebg-preview-4.png" alt="WITHX Logo"></span>
+      <span class="brand-text">WITHX</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a class="active" aria-current="page" href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
-  <div>
-    <a href="index.html">Home</a>
+
+  <div class="nav-right">
+    <a class="ask-btn" href="contact.html">Ask WITHX</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="products.html">Products</a>
-    <a href="projects.html">Projects</a>
-    <a href="research.html">Research</a>
-  
-    <a href="contact.html">Contact</a>
   </div>
 </nav>
+
 
 <section class="hero show">
   <div class="hero-grid">
@@ -403,11 +813,6 @@ justify-self:center;
       <div class="hero-kicker">WITHX Services</div>
       <h1>Engineering services shaped for real-world execution.</h1>
       <p>Our services combine innovation, technical depth, and practical problem solving to support products, prototypes, and engineering systems that create measurable impact.</p>
-      <div class="hero-stats">
-        <div class="hero-stat"><b>Manufacturing</b><span>Systems and solution thinking rooted in practical implementation.</span></div>
-        <div class="hero-stat"><b>Research</b><span>Innovation supported by exploration, testing, and technical learning.</span></div>
-        <div class="hero-stat"><b>Design</b><span>Engineering ideas translated into useful and purposeful products.</span></div>
-      </div>
     </div>
 
     <div class="hero-visual">
@@ -426,56 +831,79 @@ justify-self:center;
   </div>
 </section>
 
-<section>
-  <div class="title">Core Service Areas</div>
-  <p class="lead">WITHX brings together multiple engineering capabilities that support innovation from concept to execution.</p>
-</section>
-
-<section>
-  <div class="services-editorial">
-    <div class="service-feature glass">
-      <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1600&q=80" alt="Manufacturing solutions">
-      <div>
-        <h3>Manufacturing Solutions</h3>
-        <p>WITHX develops manufacturing-focused engineering solutions that aim to improve usability, productivity, and system-level efficiency. This service is centered on creating practical approaches that support smoother workflows, better operational logic, and stronger real-world implementation value.</p>
-      </div>
+<section class="summary-section">
+  <div class="section-heading-panel glass">
+    <div class="title">WITHX service pillars</div>
+    <p class="lead">A distinctive set of strengths that powers manufacturing, research, and design across every engagement.</p>
+  </div>
+  <div class="service-summary-grid">
+    <div class="summary-card">
+      <div class="summary-card-icon">🏭</div>
+      <h4>Manufacturing</h4>
+      <p>Systems and solution thinking rooted in practical implementation.</p>
     </div>
-    <div class="service-side">
-      <div class="service-card glass">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="Research and development">
-        <h3>Research & Development</h3>
-        <p>Our research and development service focuses on experimentation, concept refinement, and technical exploration. It supports the discovery of innovative directions and helps shape raw ideas into more structured and feasible engineering opportunities.</p>
-      </div>
-      <div class="service-card glass">
-        <img src="https://images.unsplash.com/photo-1581091012184-5c0b96d66d04?auto=format&fit=crop&w=1600&q=80" alt="Prototype development">
-        <h3>Prototype Development</h3>
-        <p>WITHX transforms concepts into working prototype models that help validate ideas, test performance, and improve design confidence. This service supports the journey from concept stage to tangible engineering output.</p>
-      </div>
+    <div class="summary-card">
+      <div class="summary-card-icon">🔬</div>
+      <h4>Research</h4>
+      <p>Innovation supported by exploration, testing, and technical learning.</p>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-icon">🛠️</div>
+      <h4>Design</h4>
+      <p>Engineering ideas translated into useful and purposeful products.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="alt-services">
-    <div class="process-panel glass">
-      <div class="title" style="font-size:clamp(1.9rem,3vw,2.6rem);margin-bottom:8px;">How our service approach works</div>
-      <p class="lead" style="max-width:none;">Every WITHX service is built around a simple but strong flow — understand the challenge, explore possibilities, develop structured solutions, and move toward purposeful outcomes.</p>
-      <div class="process-steps">
-        <div class="process-step">
-          <b>Understand the problem</b>
-          <span>We begin by identifying the practical challenge, use case, and engineering need.</span>
-        </div>
-        <div class="process-step">
-          <b>Explore and refine</b>
-          <span>Research, technical thinking, and iterative improvement help shape better directions.</span>
-        </div>
-        <div class="process-step">
-          <b>Build and validate</b>
-          <span>Ideas are translated into prototype, system, or design outcomes that can be evaluated.</span>
-        </div>
-      </div>
+  <div class="section-heading-panel glass">
+    <div class="title">Core Service Areas</div>
+    <p class="lead">WITHX brings together multiple engineering capabilities that support innovation from concept to execution.</p>
+  </div>
+  <div class="service-area-grid">
+    <div class="service-card premium glass">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="Research and development">
+      <h3>Research & Development</h3>
+      <p>Our research and development service focuses on experimentation, concept refinement, and technical exploration. It supports the discovery of innovative directions and helps shape raw ideas into more structured and feasible engineering opportunities.</p>
     </div>
-    <div class="highlight-grid">
+    <div class="service-card premium glass">
+      <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1600&q=80" alt="Manufacturing solutions">
+      <h3>Manufacturing Solutions</h3>
+      <p>WITHX develops manufacturing-focused engineering solutions that aim to improve usability, productivity, and system-level efficiency. This service is centered on creating practical approaches that support smoother workflows, better operational logic, and stronger real-world implementation value.</p>
+    </div>
+    <div class="service-card premium glass">
+      <img src="https://images.unsplash.com/photo-1581091012184-5c0b96d66d04?auto=format&fit=crop&w=1600&q=80" alt="Prototype development">
+      <h3>Prototype Development</h3>
+      <p>WITHX transforms concepts into working prototype models that help validate ideas, test performance, and improve design confidence. This service supports the journey from concept stage to tangible engineering output.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading-panel glass">
+    <div class="title">How our service approach works</div>
+    <p class="lead" style="max-width:none;">Every WITHX service is built around a simple but strong flow — understand the challenge, explore possibilities, develop structured solutions, and move toward purposeful outcomes.</p>
+  </div>
+  <div class="process-cards">
+    <div class="process-card glass">
+      <div class="process-badge">1</div>
+      <h3>Understand the problem</h3>
+      <p>We begin by identifying the practical challenge, use case, and engineering need.</p>
+    </div>
+    <div class="process-card glass">
+      <div class="process-badge">2</div>
+      <h3>Explore and refine</h3>
+      <p>Research, technical thinking, and iterative improvement help shape better directions.</p>
+    </div>
+    <div class="process-card glass">
+      <div class="process-badge">3</div>
+      <h3>Build and validate</h3>
+      <p>Ideas are translated into prototype, system, or design outcomes that can be evaluated.</p>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="highlight-grid">
       <div class="highlight-card glass">
         <div class="icon">📐</div>
         <h4>Industrial Design</h4>
@@ -497,7 +925,6 @@ justify-self:center;
         <p>Every service is aligned with the goal of creating outcomes that matter in practical engineering contexts.</p>
       </div>
     </div>
-  </div>
 </section>
 
 <section>
@@ -511,8 +938,56 @@ justify-self:center;
   </div>
 </section>
 
-<footer>
-  © 2026 WITHX Innovations Private Limited · Services Page
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>WITHX INNOVATIONS</h3>
+      <p>
+        WITHX Innovations Private Limited is an engineering-driven company
+        focused on research &amp; development, manufacturing solutions,
+        industrial design, product innovation and advanced technology development.
+      </p>
+    </div>
+
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="research.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-box">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <span>📍 EDF MITAoE, Dehu Phata, Alandi (D), Pune, Maharashtra</span>
+        <span>🏢 WITHX Innovations Pvt. Ltd.</span>
+
+        <a href="mailto:withx.innovations@gmail.com">
+          ✉ withx.innovations@gmail.com
+        </a>
+
+        <div class="social-links">
+          <a class="linkedin" href="https://www.linkedin.com/company/withx-innovations/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="instagram" href="https://www.instagram.com/withx.in" target="_blank" rel="noopener">Instagram</a>
+          <a class="youtube" href="https://youtube.com/@withxinnovation" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    ©️ 2026 WITHX Innovations Private Limited. All Rights Reserved.
+  </div>
+
 </footer>
 
 <script>
