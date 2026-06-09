@@ -261,16 +261,16 @@ nav a:hover{color:var(--accent);opacity:1;}
 }
 /* CONTAINER */
 .container{
-  width:90%;
-  max-width:1200px;
+  width:100%;
+  max-width:1300px;
   margin:auto;
 }
 
 /* GRID */
 .grid{
   display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:40px;
+  grid-template-columns:.9fr 1.0fr;
+  gap:60px;
 }
 /* GLASS CARD premium*/
 .card{
@@ -357,8 +357,9 @@ button:hover{background:#0284c7}
 
 /* MAP */
 .map{
-  margin-top:10px;
+  margin-top:50px;
   width:100%;
+  height : 400px;
   border-radius:20px;
   overflow:hidden;
   box-shadow:0 15px 40px rgba(0,0,0,.08);
@@ -534,10 +535,17 @@ button:hover{background:#0284c7}
   margin-top:80px;
   text-align:left;
   border-top:1px solid rgba(255,255,255,.08);
+  position:relative;
   z-index:2;
 }
 
-
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1.4fr;
+  gap:50px;
+}
 
 .footer-box h3{
   font-size:28px;
@@ -605,10 +613,9 @@ button:hover{background:#0284c7}
 
 .linkedin{color:#60a5fa !important;}
 .instagram{color:#fb7185 !important;}
-.youtube{color:#f87171 !important;}
+.youtube{color:#ff0000 !important;}
 
-.footer-bottom{ 
- 
+.footer-bottom{
   max-width:1200px;
   margin:40px auto 0;
   padding-top:20px;
@@ -616,6 +623,18 @@ button:hover{background:#0284c7}
   border-top:1px solid rgba(255,255,255,.1);
   color:#94a3b8;
   font-size:14px;
+}
+
+@media(max-width:900px){
+  .footer{
+    padding:50px 6% 22px;
+    margin-top:60px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
 }
 </style>
 </head>
@@ -752,16 +771,12 @@ button:hover{background:#0284c7}
   </div>
 
 </div>
-<div class="contact-banner">
 
-  <h2>Ready To Start Your Next Innovation?</h2>
 
-  <p>
-    Connect with WITHX Innovations and let's create impactful solutions together.
-  </p>
+</div> <!-- grid -->
+</div> <!-- container -->
 
-</div>
-  <!-- MAP -->
+ <!-- MAP -->
    <div class="map">
     <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3779.7499388364977!2d73.8919792!3d18.675214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c9000eac9117%3A0xd7fd686ff2f30062!2sWITHX%20innovation%20Private%20limited!5e0!3m2!1sen!2sin!4v1780552675306!5m2!1sen!2sin"
@@ -774,6 +789,16 @@ button:hover{background:#0284c7}
     </iframe>
 </div>
 
+<div class="contact-banner">
+  <h2>Ready To Start Your Next Innovation?</h2>
+
+  <p>
+    Connect with WITHX Innovations and let's create impactful solutions together.
+  </p>
+
+</div>
+ 
+
 
 <!-- FLOAT BUTTONS -->
 <div class="float">
@@ -782,9 +807,11 @@ button:hover{background:#0284c7}
 </div>
 
 
+
+
 <footer class="footer">
 
- 
+  <div class="footer-container">
 
     <div class="footer-box">
       <h3>WITHX INNOVATIONS</h3>
