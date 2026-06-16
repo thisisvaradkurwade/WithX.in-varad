@@ -64,24 +64,21 @@ body::before{
   50%{opacity:1;transform:scale(1.06)}
 }
 
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 34px;
-  background:rgba(255,255,255,.84);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(0,0,0,.05);
-  z-index:1000;
-}
-nav .logo{display:flex;align-items:center;gap:10px}
-nav .logo img{height:38px}
-nav b{letter-spacing:.08em;font-size:.95rem;color:var(--primary)}
-nav a{margin-left:16px;text-decoration:none;color:var(--text);opacity:.72;transition:.3s;font-size:.95rem}
-nav a:hover{color:var(--accent);opacity:1}
+.blob-1{width:280px;height:280px;background:#7dd3fc;top:8%;left:-4%;}
+.blob-2{width:240px;height:240px;background:#93c5fd;top:45%;right:-4%;}
+.blob-3{width:220px;height:220px;background:#bfdbfe;bottom:8%;left:38%;}
+
+
+.top-navbar{position:fixed;top:0;left:0;width:100%;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:#0b0d10;color:#fff;z-index:3000}.nav-left,.nav-right{display:flex;align-items:center;gap:34px}.brand{display:flex;align-items:center;text-decoration:none}.brand-logo-box{height:54px;min-width:76px;padding:8px 14px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.22)}.brand-logo-box img{height:38px;width:auto;display:block;object-fit:contain}.nav-links{display:flex;align-items:center;gap:30px}.top-navbar a{color:#fff;text-decoration:none;font-size:16px;font-weight:600;transition:.25s}.top-navbar a:hover,.top-navbar a.active{color:#38bdf8}.ask-btn{padding:14px 26px;border:1px solid #8b5cf6;border-radius:999px;background:#111827}.ask-btn:hover{box-shadow:0 0 24px rgba(56,189,248,.24)}.menu-btn{display:none;background:none;border:none;color:#fff;font-size:30px}.mobile-menu{position:fixed;top:88px;left:0;width:100%;background:#0b0d10;display:none;flex-direction:column;z-index:5000}.mobile-menu a{padding:18px 24px;text-decoration:none;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600}.mobile-menu.show{display:flex}
+
+
+
+
+
+
+
+
+  
 
 .hero{
   min-height:100vh;
@@ -202,16 +199,24 @@ nav a:hover{color:var(--accent);opacity:1}
   min-width:130px;
   padding:12px 14px;
   border-radius:18px;
-  background:rgba(255,255,255,.86);
+  background:rgba(255,255,255,.92);
   border:1px solid rgba(10,31,68,.08);
   box-shadow:0 16px 36px rgba(10,31,68,.08);
   color:var(--primary);
   font-weight:600;
+  pointer-events:none;
+  z-index:3;
+  transition:box-shadow .2s ease, border-color .2s ease, transform .2s ease;
 }
-.chip-a{top:16%;left:10%}
-.chip-b{top:22%;right:8%}
-.chip-c{bottom:18%;left:14%}
-.chip-d{bottom:14%;right:10%}
+.floating-chip.collide{
+  border-color:rgba(56,189,248,.7);
+  box-shadow:0 20px 48px rgba(56,189,248,.35), 0 0 0 4px rgba(56,189,248,.12);
+  transform:scale(1.03);
+}
+.chip-a{top:18%;left:12%}
+.chip-b{top:22%;left:66%}
+.chip-c{top:62%;left:16%}
+.chip-d{top:64%;left:64%}
 
 section{
   width:min(var(--max),calc(100% - 40px));
@@ -341,14 +346,113 @@ section.show{opacity:1;transform:translateY(0)}
 .btn:hover{transform:translateY(-2px) scale(1.02)}
 .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px}
 
-footer{
-  padding:44px 20px 60px;
-  border-top:1px solid rgba(10,31,68,.08);
-  background:rgba(255,255,255,.72);
-  text-align:center;
-  color:var(--muted);
+.footer{
+  background:#0f172a;
+  color:#fff;
+  padding:70px 8% 25px;
+  margin-top:80px;
+  text-align:left;
+  border-top:1px solid rgba(255,255,255,.08);
   position:relative;
   z-index:2;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1.4fr;
+  gap:50px;
+}
+
+.footer-box h3{
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:15px;
+  color:#fff;
+  letter-spacing:.3px;
+}
+
+.footer-box h4{
+  font-size:18px;
+  margin-bottom:20px;
+  color:#fff;
+}
+
+.footer-box p{
+  color:#cbd5e1;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.footer-links,
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.footer-links a,
+.footer-contact a{
+  color:#cbd5e1;
+  text-decoration:none;
+  transition:.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#38bdf8;
+  transform:translateX(4px);
+}
+
+.footer-contact span{
+  color:#cbd5e1;
+  line-height:1.6;
+}
+
+.social-links{
+  display:flex;
+  gap:12px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.social-links a{
+  padding:10px 16px;
+  border-radius:999px;
+  background:#1e293b;
+  font-weight:600;
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+
+.social-links a:hover{
+  transform:translateY(-3px);
+}
+
+.linkedin{color:#60a5fa !important;}
+.instagram{color:#fb7185 !important;}
+.youtube{color:#f87171 !important;}
+
+.footer-bottom{
+  max-width:1200px;
+  margin:40px auto 0;
+  padding-top:20px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:#94a3b8;
+  font-size:14px;
+}
+
+@media(max-width:900px){
+  .footer{
+    padding:50px 6% 22px;
+    margin-top:60px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
 }
 
 @media (max-width: 980px){
@@ -366,10 +470,16 @@ footer{
   .visual-frame{transform:none}
 }
 
+@media(max-width:900px){
+  .top-navbar{height:auto;padding:18px 22px;flex-direction:row;align-items:center}
+  .nav-links,.ask-btn,.nav-right>a[href="about.html"]{display:none}
+  .menu-btn{display:block}
+  .nav-left,.nav-right{gap:18px}
+  .hero{padding-top:130px}
+  .footer-container{grid-template-columns:1fr}
+}
+
 @media (max-width: 720px){
-  nav{padding:14px 18px;gap:10px;flex-direction:column;align-items:flex-start}
-  nav div:last-child{display:flex;flex-wrap:wrap;gap:8px}
-  nav a{margin-left:0;font-size:.88rem}
   .hero{padding-top:150px}
   .hero-copy,.research-card,.tech-card,.innovation-card,.patent-item,.cta-panel{padding:22px 18px}
   section{width:min(var(--max),calc(100% - 24px));padding:72px 0}
@@ -385,22 +495,31 @@ footer{
 <div class="orb orb2"></div>
 <div class="orb orb3"></div>
 
-<nav>
-  <div class="logo">
-    <img src="https://i.ibb.co/BVTS9KXY/image-removebg-preview-4.png" alt="WITHX Logo">
-    <b>WITHX</b>
+<nav class="top-navbar">
+  <div class="nav-left">
+    <a class="brand" href="index.html" aria-label="WITHX Home">
+      <span class="brand-logo-box"><img src="https://i.ibb.co/5gCTxNtx/Whats-App-Image-2026-06-09-at-12-19-38-PM.jpg" alt="WITHX Logo"></span>
+     
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
-  <div>
-    <a href="index.html">Home</a>
+
+  <div class="nav-right">
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <a class="ask-btn" href="contact.html">Ask WITHX</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="products.html">Products</a>
-    <a href="projects.html">Projects</a>
-    <a href="research.html">Research</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
   </div>
 </nav>
+<div id="mobileMenu" class="mobile-menu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="projects.html">Projects</a><a href="research.html">Research</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+
 
 <section class="hero" id="home">
   <div class="hero-grid">
@@ -571,18 +690,56 @@ footer{
   </div>
 </section>
 
-<section>
-  <div class="cta-panel glass">
-    <div class="title">Exploring what comes next.</div>
-    <p class="lead" style="margin:0 auto;">WITHX research is built on the belief that strong engineering ideas become more valuable when they are tested, refined, and translated into real innovation.</p>
-    <div class="hero-actions">
-      <button class="btn" onclick="window.location.href='contact.html'">Contact Us</button>
-    </div>
-  </div>
-</section>
+<footer class="footer">
 
-<footer>
-  © 2026 WITHX Innovations Private Limited · Research & Innovation Page
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>WITHX INNOVATIONS</h3>
+      <p>
+        WITHX Innovations Private Limited is an engineering-driven company
+        focused on research & development, manufacturing solutions,
+        industrial design, product innovation and advanced technology development.
+      </p>
+    </div>
+
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="research.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-box">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <span>📍 EDF MITAoE, Dehu Phata, Alandi (D), Pune, Maharashtra</span>
+        <span>🏢 WITHX Innovations Pvt. Ltd.</span>
+
+        <a href="mailto:withx.innovations@gmail.com">
+          ✉ withx.innovations@gmail.com
+        </a>
+
+        <div class="social-links">
+          <a class="linkedin" href="https://www.linkedin.com/company/withx-innovations/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="instagram" href="https://www.instagram.com/withx.in" target="_blank" rel="noopener">Instagram</a>
+          <a class="youtube" href="https://youtube.com/@withxinnovation" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    ©️ 2026 WITHX Innovations Private Limited. All Rights Reserved.
+  </div>
+
 </footer>
 
 <script>
@@ -612,7 +769,7 @@ if(heroVisual && visualFrame && window.innerWidth > 980){
   });
 }
 
-const parallaxTargets = document.querySelectorAll('.orb, .floating-chip');
+const parallaxTargets = document.querySelectorAll('.orb');
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
   parallaxTargets.forEach((element, idx) => {
@@ -625,6 +782,128 @@ window.addEventListener('scroll', () => {
     heroCopy.style.setProperty('--heroShift', `${y * 0.08}px`);
   }
 });
+
+const floatingChips = Array.from(document.querySelectorAll('.floating-chip'));
+const chipContainer = document.getElementById('visualFrame');
+if (floatingChips.length && chipContainer) {
+  const chips = floatingChips.map((el, idx) => ({
+    el,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
+    width: 0,
+    height: 0,
+    timeout: null,
+  }));
+
+  const setInitialState = () => {
+    const bounds = chipContainer.getBoundingClientRect();
+    chips.forEach((chip, idx) => {
+      const style = window.getComputedStyle(chip.el);
+      const left = parseFloat(style.left);
+      const top = parseFloat(style.top);
+      chip.width = chip.el.offsetWidth;
+      chip.height = chip.el.offsetHeight;
+      chip.x = Number.isFinite(left) ? left : (idx % 2 ? bounds.width * 0.68 : bounds.width * 0.12);
+      chip.y = Number.isFinite(top) ? top : (idx < 2 ? bounds.height * 0.18 : bounds.height * 0.62);
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 18 + Math.random() * 12;
+      chip.vx = Math.cos(angle) * speed;
+      chip.vy = Math.sin(angle) * speed;
+      chip.el.style.left = `${chip.x}px`;
+      chip.el.style.top = `${chip.y}px`;
+    });
+  };
+
+  const bounceChip = (chip, bounds) => {
+    const margin = 10;
+    const maxX = bounds.width - chip.width - margin;
+    const maxY = bounds.height - chip.height - margin;
+
+    if (chip.x <= margin) {
+      chip.x = margin;
+      chip.vx = Math.abs(chip.vx);
+    } else if (chip.x >= maxX) {
+      chip.x = maxX;
+      chip.vx = -Math.abs(chip.vx);
+    }
+
+    if (chip.y <= margin) {
+      chip.y = margin;
+      chip.vy = Math.abs(chip.vy);
+    } else if (chip.y >= maxY) {
+      chip.y = maxY;
+      chip.vy = -Math.abs(chip.vy);
+    }
+  };
+
+  const applyCollisionEffect = (chip) => {
+    chip.el.classList.add('collide');
+    clearTimeout(chip.timeout);
+    chip.timeout = setTimeout(() => chip.el.classList.remove('collide'), 220);
+  };
+
+  const resolveCollision = (a, b) => {
+    const nx = (a.x + a.width / 2) - (b.x + b.width / 2);
+    const ny = (a.y + a.height / 2) - (b.y + b.height / 2);
+    const dist = Math.max(Math.hypot(nx, ny), 1);
+    const relativeVelocity = (a.vx - b.vx) * (nx / dist) + (a.vy - b.vy) * (ny / dist);
+    if (relativeVelocity > 0) return;
+    const impulse = relativeVelocity * -1;
+    const normalX = nx / dist;
+    const normalY = ny / dist;
+    a.vx += normalX * impulse;
+    a.vy += normalY * impulse;
+    b.vx -= normalX * impulse;
+    b.vy -= normalY * impulse;
+    applyCollisionEffect(a);
+    applyCollisionEffect(b);
+  };
+
+  const updateAnimation = (time) => {
+    const bounds = chipContainer.getBoundingClientRect();
+    if (!updateAnimation.lastTime) updateAnimation.lastTime = time;
+    const delta = Math.min((time - updateAnimation.lastTime) / 1000, 0.05);
+    updateAnimation.lastTime = time;
+
+    chips.forEach((chip) => {
+      chip.width = chip.el.offsetWidth;
+      chip.height = chip.el.offsetHeight;
+      chip.x += chip.vx * delta;
+      chip.y += chip.vy * delta;
+      bounceChip(chip, bounds);
+    });
+
+    for (let i = 0; i < chips.length; i += 1) {
+      for (let j = i + 1; j < chips.length; j += 1) {
+        const a = chips[i];
+        const b = chips[j];
+        if (a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y) {
+          resolveCollision(a, b);
+        }
+      }
+    }
+
+    chips.forEach((chip) => {
+      chip.el.style.left = `${chip.x}px`;
+      chip.el.style.top = `${chip.y}px`;
+    });
+
+    requestAnimationFrame(updateAnimation);
+  };
+
+  setInitialState();
+  window.addEventListener('resize', setInitialState);
+  requestAnimationFrame(updateAnimation);
+}
+
+const menuBtn=document.getElementById('menuBtn');
+const mobileMenu=document.getElementById('mobileMenu');
+if(menuBtn && mobileMenu){
+  menuBtn.addEventListener('click',()=>mobileMenu.classList.toggle('show'));
+  document.querySelectorAll('#mobileMenu a').forEach((link)=>link.addEventListener('click',()=>mobileMenu.classList.remove('show')));
+}
 </script>
 </body>
 </html>

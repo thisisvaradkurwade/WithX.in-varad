@@ -71,6 +71,13 @@ body::before{
   50%{transform:translateY(-12px) translateX(12px) scale(1.05)}
 }
 /* NAV premium */
+
+
+.blob-1{width:280px;height:280px;background:#7dd3fc;top:8%;left:-4%;}
+.blob-2{width:240px;height:240px;background:#93c5fd;top:45%;right:-4%;}
+.blob-3{width:220px;height:220px;background:#bfdbfe;bottom:8%;left:38%;}
+
+
 .top-navbar{
   position:fixed !important;
   top:0 !important;
@@ -170,21 +177,15 @@ nav.top-navbar .brand img{
   color:#38bdf8 !important;
 }
 
-.ask-btn{
-  padding:14px 26px !important;
-  border:1px solid #8b5cf6 !important;
-  border-radius:999px !important;
-  background:#111827 !important;
-  color:#ffffff !important;
-}
+.ask-btn{padding:14px 26px;
+  border:1px solid #8b5cf6;
+  border-radius:999px;
+  background:#111827}
 
-.ask-btn:hover{
-  border-color:#38bdf8 !important;
-  color:#ffffff !important;
-  box-shadow:0 0 24px rgba(56,189,248,.24) !important;
-  transform:translateY(-1px) !important;
-}
+.ask-btn:hover{box-shadow:0 0 24px rgba(56,189,248,.24)}
 
+
+  
 .hero,
 .page-hero,
 .services-hero,
@@ -203,44 +204,12 @@ main,
 
 @media(max-width:900px){
   .top-navbar{
-    height:auto !important;
-    padding:18px 22px !important;
-    flex-direction:column !important;
-    align-items:flex-start !important;
-    gap:18px !important;
+    height:auto !important;padding:18px 22px !important;flex-direction:row !important;align-items:center !important;
   }
-
-  .nav-left,
-  .nav-right{
-    width:100% !important;
-    flex-direction:column !important;
-    align-items:flex-start !important;
-    gap:16px !important;
-  }
-
-  .brand{
-    font-size:22px !important;
-  }
-
-  .brand-logo-box{
-    height:50px !important;
-    min-width:70px !important;
-  }
-
-  .nav-links{
-    width:100% !important;
-    display:flex !important;
-    flex-wrap:wrap !important;
-    gap:16px 22px !important;
-  }
-
-  .top-navbar a{
-    font-size:15px !important;
-  }
-
-  .ask-btn{
-    padding:12px 22px !important;
-  }
+  .nav-links,.ask-btn,.nav-right>a[href="about.html"]{display:none !important}
+  .menu-btn{display:block !important; color:#fff !important;}
+  .nav-left,.nav-right{gap:18px !important; width:auto !important; flex-direction:row !important; align-items:center !important;}
+  .footer-container{grid-template-columns:1fr !important}
 
   .hero,
   .page-hero,
@@ -1120,12 +1089,304 @@ input:focus,textarea:focus{
     gap:35px;
   }
 }
+/* APPLE-LIKE MOBILE NAV FIX */
+@media (max-width: 768px){
+
+  .top-navbar{
+    height:58px !important;
+    padding:0 18px !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    background:#f5f5f7 !important;
+    color:#111 !important;
+  }
+
+  .nav-left,
+  .nav-right{
+    width:auto !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    gap:0 !important;
+  }
+
+  .brand-logo-box img{
+    height:34px !important;
+  }
+
+  .nav-links{
+    display:none !important;
+  }
+
+  .ask-btn{
+    display:none !important;
+  }
+
+  .nav-right a[href="about.html"]{
+    display:none !important;
+  }
+
+  /* .nav-right::before{
+    content:"🔍";
+    font-size:22px;
+    color:#111;
+    margin-right:24px;
+  }
+
+  .nav-right::after{
+    content:"☰";
+    font-size:26px;
+    color:#111;
+  } */
+
+  .hero{
+    margin-top:58px !important;
+    padding:80px 24px 50px !important;
+    min-height:auto !important;
+    text-align:left !important;
+    align-items:flex-start !important;
+    place-items:start !important;
+  }
+
+  .hero-inner{
+    justify-items:start !important;
+  }
+
+  .hero-copy{
+    text-align:left !important;
+    padding:0 !important;
+  }
+
+  .hero h1{
+    font-size:48px !important;
+    line-height:1.05 !important;
+    text-align:left !important;
+  }
+
+  .hero p{
+    margin:18px 0 28px !important;
+    text-align:left !important;
+    font-size:22px !important;
+    line-height:1.25 !important;
+    color:#1d1d1f !important;
+    max-width:320px !important;
+  }
+
+  .hero-actions{
+    justify-content:flex-start !important;
+    align-items:flex-start !important;
+  }
+
+  .hero-wave-canvas{
+    height:180px !important;
+    bottom:0 !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===== END PREMIUM FOOTER FIX ===== */
 
 
 
 
 
+
+
+/* GENERATED MOBILE MENU PATCH */
+.menu-btn{display:none;background:none;border:none;color:#fff !important;font-size:30px;cursor:pointer;padding:0;line-height:1}
+.mobile-menu{position:fixed;top:88px;left:0;width:100%;background:#0b0d10;display:none;flex-direction:column;z-index:5000;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.mobile-menu a{padding:18px 24px;text-decoration:none;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600}
+.mobile-menu.show{display:flex}
+
+
+/* ===== FINAL WELL-MANAGED CARD LAYOUT PATCH ===== */
+.section-top{
+  text-align:center;
+  margin:0 auto 42px;
+}
+
+.section-top p{
+  max-width:720px;
+  margin:0 auto;
+}
+
+.stagger-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+  gap:26px !important;
+  max-width:1200px;
+  margin:0 auto;
+  align-items:stretch;
+}
+
+.stagger-grid .card{
+  max-width:none !important;
+  min-height:380px !important;
+}
+
+.card{
+  display:flex !important;
+  flex-direction:column !important;
+  height:100%;
+  gap:10px;
+}
+
+.card img.card-image,
+.card-image{
+  width:100% !important;
+  height:180px !important;
+  object-fit:cover !important;
+  border-radius:16px !important;
+  flex-shrink:0;
+}
+
+.card strong{
+  display:block;
+  font-size:1.08rem;
+  line-height:1.35;
+  color:#000;
+  margin-top:4px;
+}
+
+.card span,
+.card div{
+  line-height:1.65;
+}
+
+.product-showcase{
+  display:grid !important;
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap:28px !important;
+  align-items:stretch !important;
+}
+
+.feature-card{
+  min-height:100% !important;
+}
+
+.feature-card .card-image{
+  height:300px !important;
+}
+
+.product-stack{
+  display:grid !important;
+  grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+  gap:24px !important;
+}
+
+.product-stack .card span{
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.card .btn{
+  margin-top:auto !important;
+  align-self:flex-start;
+  text-decoration:none !important;
+}
+
+.carousel{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+  gap:26px !important;
+  overflow:visible !important;
+  padding:0 !important;
+}
+
+.carousel .card{
+  min-width:0 !important;
+  max-width:none !important;
+  height:100% !important;
+}
+
+.tag{
+  margin-top:auto !important;
+  width:max-content;
+}
+
+#contact-panel .contact-grid{
+  max-width:720px;
+  margin:0 auto;
+}
+
+@media(max-width:1100px){
+  .stagger-grid,
+  .carousel{
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .product-showcase{
+    grid-template-columns:1fr !important;
+  }
+}
+
+@media(max-width:700px){
+  .section-top{
+    text-align:left;
+    margin-bottom:28px;
+  }
+
+  .section-top p{
+    margin:0;
+  }
+
+  .stagger-grid,
+  .carousel,
+  .product-stack{
+    grid-template-columns:1fr !important;
+  }
+
+  .stagger-grid .card{
+    min-height:auto !important;
+  }
+
+  .card{
+    padding:20px !important;
+  }
+
+  .card img.card-image,
+  .card-image{
+    height:170px !important;
+  }
+
+  .feature-card .card-image{
+    height:210px !important;
+  }
+}
+/* ===== END FINAL WELL-MANAGED CARD LAYOUT PATCH ===== */
 
 </style>
 </head>
@@ -1135,26 +1396,12 @@ input:focus,textarea:focus{
 <div class="orb orb3"></div>
 <nav class="top-navbar">
   <div class="nav-left">
-    <a class="brand" href="index.html" aria-label="WITHX Home">
-      <span class="brand-logo-box"><img src="https://i.ibb.co/BVTS9KXY/image-removebg-preview-4.png" alt="WITHX Logo"></span>
-      <span class="brand-text">WITHX</span>
-    </a>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="products.html">Products</a>
-      <a href="projects.html">Projects</a>
-      <a href="research.html">Research</a>
-      <a href="contact.html">Contact</a>
-    </div>
+    <a class="brand" href="index.html" aria-label="WITHX Home"><span class="brand-logo-box"><img src="https://i.ibb.co/5gCTxNtx/Whats-App-Image-2026-06-09-at-12-19-38-PM.jpg" alt="WITHX Logo"></span></a>
+    <div class="nav-links"><a href="index.html" class="active">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="projects.html">Projects</a><a href="research.html">Research</a><a href="contact.html">Contact</a></div>
   </div>
-
-  <div class="nav-right">
-    <a class="ask-btn" href="contact.html">Ask WITHX</a>
-    <a href="about.html">About</a>
-  </div>
+  <div class="nav-right"><button id="menuBtn" class="menu-btn">☰</button><a class="ask-btn" href="contact.html">Ask WITHX</a><a href="about.html">About</a></div>
 </nav>
+<div id="mobileMenu" class="mobile-menu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="projects.html">Projects</a><a href="research.html">Research</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
 <div class="hero" id="home">
   <canvas id="waveCanvas" class="hero-wave-canvas"></canvas>
   <div class="hero-inner">
@@ -1219,7 +1466,7 @@ input:focus,textarea:focus{
   </div>
   <div class="product-showcase">
     <div class="card feature-card" onclick="window.location.href='products.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80" alt="Utensil cleaner" style="height:320px;">
+      <img class="card-image" src="https://i.ibb.co/218RTVxk/Whats-App-Image-2026-06-11-at-1-56-19-PM.jpg" alt="Utensil cleaner" style="height:320px;">
       <strong style="font-size:1.35rem;display:block;margin-bottom:10px;">Multifunctional Utensil Cleaner</strong>
       <span style="opacity:.78;line-height:1.8;display:block;">A utility-focused concept designed to improve everyday cleaning efficiency with a practical engineering approach.</span>
      <a href="products.html" class="btn" style="margin-top:12px; display:inline-block; text-decoration:none;">
@@ -1228,7 +1475,7 @@ View Product
     </div>
     <div class="product-stack">
       <div class="card" onclick="window.location.href='products.html'" style="cursor:pointer;">
-        <img class="card-image" src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=1200&q=80" alt="Food machine">
+        <img class="card-image" src="https://i.ibb.co/S4jMGRr6/Screenshot-2026-06-11-145657.png" alt="Food machine">
         <strong>Wada Maker Machine</strong><br>
         <span style="opacity:.75;">Consistency and speed focused machine concept.</span>
       <a href="products.html" class="btn" style="margin-top:12px; display:inline-block; text-decoration:none;">
@@ -1236,17 +1483,17 @@ View Product
 </a>
       </div>
       <div class="card" onclick="window.location.href='products.html'" style="cursor:pointer;">
-        <img class="card-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Driver rescue system">
-        <strong>Driver Rescue System</strong><br>
-        <span style="opacity:.75;">Safety-centered engineering innovation.</span>
+        <img class="card-image" src="https://i.ibb.co/LhrVMCLk/Screenshot-2026-06-11-143159.png">
+        <strong>Lead Frame Manufacturing</strong><br>
+        <span style="opacity:.75;">A Lead Frame is a thin metal framework used in semiconductor packaging to support a semiconductor chip (die) and provide electrical connections between the chip and the external circuit. It acts as the backbone of many electronic components such as ICs, transistors, LEDs, sensors, and power devices.</span>
       <a href="products.html" class="btn" style="margin-top:12px; display:inline-block; text-decoration:none;">
 View Product
 </a>
       </div>
       <div class="card" onclick="window.location.href='products.html'" style="cursor:pointer;">
         <img class="card-image" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80" alt="Helmet locking system">
-        <strong>Helmet Locking System</strong><br>
-        <span style="opacity:.75;">Smart daily-use protection concept.</span>
+        <strong> Defence Drone camera </strong><br>
+        <span style="opacity:.75;">The WITHX Drone Surveillance System is designed to provide real-time aerial monitoring, reconnaissance, and situational awareness. The platform supports rapid deployment and efficient area observation for security, inspection, and surveillance applications.</span>
         <a href="products.html" class="btn" style="margin-top:12px; display:inline-block; text-decoration:none;">
 View Product
 </a>
@@ -1264,80 +1511,34 @@ View Product
   <div class="carousel">
 
  <div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80">
+      <img class="card-image" src="https://i.ibb.co/218RTVxk/Whats-App-Image-2026-06-11-at-1-56-19-PM.jpg">
       <strong>WITHX1</strong>
-      <div class="tag">Smart Factory Automation System</div>
+      <div class="tag">Utensils Cleaner </div>
     </div>
 
    <div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
+      <img class="card-image" src="https://i.ibb.co/S4jMGRr6/Screenshot-2026-06-11-145657.png">
       <strong>WITHX2</strong>
-      <div class="tag">Industrial Safety Alert Platform</div>
+      <div class="tag">Wada Maker Machine</div>
     </div>
 
    <div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80">
+      <img class="card-image" src="https://i.ibb.co/LhrVMCLk/Screenshot-2026-06-11-143159.png">
       <strong>WITHX3</strong>
-      <div class="tag">IoT Energy Monitoring Network</div>
+      <div class="tag">Lead Frame Manufacturing</div>
     </div>
 
     <div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80">
+      <img class="card-image" src="https://static.vecteezy.com/system/resources/thumbnails/045/813/150/small_2x/flying-drone-in-air-action-drone-flies-over-green-trees-new-model-of-drone-in-air-shoots-green-trees-in-summer-video.jpg">
       <strong>WITHX4</strong>
-      <div class="tag">Precision Product Design Studio</div>
-    </div>
-
-   <div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1200&q=80">
-      <strong>WITHX5</strong>
-      <div class="tag">Innovation Prototype Lab</div>
-    </div>
-   
-<div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80">
-      <strong>WITHX6</strong>
-      <div class="tag">Advanced Manufacturing Line</div>
-    </div>
-
-   <div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80">
-      <strong>WITHX7</strong>
-      <div class="tag">Research & Testing Module</div>
-    </div>
-
-    <div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1200&q=80">
-      <strong>WITHX8</strong>
-      <div class="tag">Smart Control Systems Hub</div>
-    </div>
-
-<div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80">
-      <strong>WITHX9</strong>
-      <div class="tag">Intelligent Engineering Solutions</div>
-    </div>
-
- <div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80">
-      <strong>WITHX10</strong>
-      <div class="tag">Corporate Process Optimizer</div>
-    </div>
-
-<div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80">
-      <strong>WITHX11</strong>
-      <div class="tag">Team Productivity Ecosystem</div>
-    </div>
-
-<div class="card" onclick="window.location.href='projects.html'" style="cursor:pointer;">
-      <img class="card-image" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80">
-      <strong>WITHX12</strong>
-      <div class="tag">Smart Consumer Product Seriess</div>
+      <div class="tag">Defence Drone System</div>
     </div>
 
 
   </div>
 </section>
+
+<!-- Future project cards can be added here later. -->
 
 <section class="center" id="cta">
   <div class="section-top">
@@ -1353,32 +1554,65 @@ View Product
 <section id="contact-panel">
 
   <div class="grid contact-grid">
+
     <div class="card">
-      <div class="title" style="font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:10px;">Contact WITHX</div>
-      <p style="color:var(--muted);margin-bottom:22px;line-height:1.8;">Let’s discuss products, collaborations, prototypes, and engineering innovation opportunities.</p>
-      <form action="https://formsubmit.co/yourcompanyemail@example.com" method="POST">
+
+      <div class="title" style="font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:10px;">
+        Contact WITHX
+      </div>
+
+      <p style="color:var(--muted);margin-bottom:22px;line-height:1.8;">
+        Let's discuss products, collaborations, prototypes, and engineering innovation opportunities.
+      </p>
+
+      <form action="https://formsubmit.co/withx.innovations@gmail.com" method="POST">
+
+        <!-- FormSubmit Settings -->
         <input type="hidden" name="_subject" value="New WITHX Website Message">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input class="form-control" type="text" name="name" placeholder="Your Name" required>
-        <input class="form-control" type="email" name="email" placeholder="Your Email" required>
-        <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
-        <button class="btn" type="submit">Send Message</button>
+
+        <!-- Redirect after successful submission -->
+        <input type="hidden" name="_next" value="https://withx.in">
+
+        <!-- Name -->
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        >
+
+        <!-- Email -->
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        >
+
+        <!-- Message -->
+        <textarea
+          class="form-control"
+          name="message"
+          placeholder="Your Message"
+          rows="6"
+          required
+        ></textarea>
+
+        <!-- Submit Button -->
+        <button class="btn" type="submit">
+          Send Message
+        </button>
+
       </form>
+
     </div>
 
-    <div class="card">
-      <img class="card-image" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="Office and collaboration">
-      <strong style="font-size:1.15rem;display:block;margin-bottom:12px;">Pune, Maharashtra</strong>
-      <p style="color:var(--muted);line-height:1.8;margin-bottom:18px;">WITHX Innovations Private Limited creates practical engineering solutions across research, manufacturing, and smart product development.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="tag" href="https://www.linkedin.com/company/withx-innovations/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="tag" href="https://www.instagram.com/withx.in?igsh=MWJuNDR4dmxiZDJh" target="_blank" rel="noopener">Instagram</a>
-        <a class="tag" href="https://youtube.com/@withxinnovation?si=sRdB0OaLzHoDtcV5" target="_blank" rel="noopener">YouTube</a>
-        <a class="tag" href="mailto:yourcompanyemail@example.com">Email</a>
-      </div>
-    </div>
   </div>
+
 </section>
 <footer class="footer">
 
@@ -1628,76 +1862,16 @@ console.assert(document.querySelectorAll('.hero-bg-slide').length > 0, 'Hero bac
 
 
 
-<!-- WITHX AI Chatbot -->
-<div class="withx-chat-btn" onclick="toggleWithxChat()">
-    💬
-</div>
-
-<div class="withx-chatbox" id="withxChatbox">
-    <div class="withx-chat-header">
-        WITHX AI Assistant
-        <span onclick="toggleWithxChat()" style="cursor:pointer;">✕</span>
-    </div>
-
-    <div class="withx-chat-body" id="chatBody">
-        <div class="bot-msg">
-            Hello! Welcome to WITHX Innovations.<br>
-            How can I help you today?
-        </div>
-    </div>
-
-    <div class="withx-chat-input">
-        <input type="text" id="userMessage" placeholder="Ask your question..." />
-        <button onclick="sendMessage()">Send</button>
-    </div>
-</div>
 
 
 <script>
-function toggleWithxChat(){
-  const chat = document.getElementById("withxChatbox");
-  chat.style.display =
-    chat.style.display === "block" ? "none" : "block";
-}
-
-function sendMessage(){
-  const input = document.getElementById("userMessage");
-  const text = input.value.trim();
-
-  if(!text) return;
-
-  const chatBody = document.getElementById("chatBody");
-
-  chatBody.innerHTML += `
-    <div class="user-msg">${text}</div>
-  `;
-
-  let reply =
-    "Thank you for contacting WITHX. Our team will assist you shortly.";
-
-  if(text.toLowerCase().includes("product")){
-      reply="You can explore our products section for detailed information.";
-  }
-
-  if(text.toLowerCase().includes("contact")){
-      reply="You can contact WITHX via email or the contact form.";
-  }
-
-  if(text.toLowerCase().includes("service")){
-      reply="WITHX provides R&D, Manufacturing, Prototype Development and Industrial Design services.";
-  }
-
-  setTimeout(()=>{
-      chatBody.innerHTML += `
-        <div class="bot-msg">${reply}</div>
-      `;
-      chatBody.scrollTop = chatBody.scrollHeight;
-  },500);
-
-  input.value="";
+const menuBtn=document.getElementById('menuBtn');
+const mobileMenu=document.getElementById('mobileMenu');
+if(menuBtn&&mobileMenu){
+menuBtn.addEventListener('click',()=>mobileMenu.classList.toggle('show'));
+document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('show')));
 }
 </script>
-
 
 </body>
 </html>
